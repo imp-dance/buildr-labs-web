@@ -1,0 +1,125 @@
+@keyframes fromTop {
+  from {
+    transform: translateY(-33%) scale(0.5);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fromLeft {
+  from {
+    transform: translateX(-33%) scale(0.9);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fromRight {
+  from {
+    transform: translateX(33%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fromBottom {
+  from {
+    transform: translateY(33%) scale(0.9);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes topLeftBlock {
+  0% {
+    transform: translateY(27%) translateX(-33%);
+  }
+  50%,
+  70% {
+    transform: translateY(27%) translateX(0%);
+  }
+  100% {
+    transform: translateY(0%) translateX(0%);
+  }
+}
+
+@keyframes main {
+  0%,
+  75% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.buildrLogo {
+  animation: main 1.3s ease-in-out;
+}
+
+.midTop,
+.rightTop {
+  animation: fromTop 1s ease-in-out;
+}
+
+.leftMid,
+.leftBot {
+  animation: fromLeft 1s ease-in-out;
+}
+
+.midBot {
+  animation: fromBottom 1s ease-in-out;
+}
+
+.rightBot,
+.rightMid {
+  animation: fromRight 1s ease-in-out;
+}
+
+.leftTop {
+  animation: topLeftBlock 1.7s ease-in-out;
+  animation-delay: 0.6s;
+}
+
+.midTop {
+  animation-delay: 0s;
+}
+
+.rightTop {
+  animation-delay: 0.25s;
+}
+
+.rightMid {
+  animation-delay: 0.35s;
+}
+.rightBot {
+  animation-delay: 0.45s;
+}
+
+.midBot {
+  animation-delay: 0.55s;
+}
+
+.leftBot {
+  animation-delay: 0.65s;
+}
+
+.leftMid {
+  animation-delay: 0.75s;
+}
+
+.leftMid,
+.leftTop,
+.midTop,
+.rightTop,
+.midBot,
+.rightMid,
+.rightBot,
+.leftBot,
+.rightMid {
+  animation-fill-mode: both;
+}
