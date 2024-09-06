@@ -1,6 +1,7 @@
 @keyframes fromTop {
   from {
-    transform: translateY(-33%) scale(0.5);
+    transform: translateY(-33%) scale(0.5)
+      rotate3d(1, 1, 1, 45deg);
   }
   to {
     transform: translateY(0%);
@@ -9,7 +10,8 @@
 
 @keyframes fromLeft {
   from {
-    transform: translateX(-33%) scale(0.9);
+    transform: translateX(-33%) scale(0.9)
+      rotate3d(1, 1, 1, 45deg);
   }
   to {
     transform: translateX(0%);
@@ -18,7 +20,7 @@
 
 @keyframes fromRight {
   from {
-    transform: translateX(33%);
+    transform: translateX(103%) rotate3d(1, 1, 1, 45deg);
   }
   to {
     transform: translateX(0%);
@@ -27,7 +29,8 @@
 
 @keyframes fromBottom {
   from {
-    transform: translateY(33%) scale(0.9);
+    transform: translateY(150%) scale(0.9)
+      rotate3d(1, 1, 1, -45deg);
   }
   to {
     transform: translateY(0%);
@@ -58,7 +61,7 @@
 }
 
 .buildrLogo {
-  animation: main 1.3s ease-in-out;
+  animation: main 1s ease-in-out;
 }
 
 .midTop,
@@ -81,7 +84,7 @@
 }
 
 .leftTop {
-  animation: topLeftBlock 1.7s ease-in-out;
+  animation: topLeftBlock 1.5s ease-in-out;
   animation-delay: 0.6s;
 }
 
@@ -90,26 +93,26 @@
 }
 
 .rightTop {
-  animation-delay: 0.25s;
+  animation-delay: 0.15s;
 }
 
 .rightMid {
-  animation-delay: 0.35s;
+  animation-delay: 0.25s;
 }
 .rightBot {
-  animation-delay: 0.45s;
+  animation-delay: 0.35s;
 }
 
 .midBot {
-  animation-delay: 0.55s;
+  animation-delay: 0.45s;
 }
 
 .leftBot {
-  animation-delay: 0.65s;
+  animation-delay: 0.55s;
 }
 
 .leftMid {
-  animation-delay: 0.75s;
+  animation-delay: 0.65s;
 }
 
 .leftMid,

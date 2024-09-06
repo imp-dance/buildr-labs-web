@@ -22,7 +22,7 @@ export default function Home() {
               <p
                 style={{
                   animation: "logoTextIn 1s ease-in-out both",
-                  animationDelay: "1.6s",
+                  animationDelay: "0.2s",
                 }}
                 className="text-sm font-light ml-1 text-zinc-300 opacity-80"
               >
@@ -35,15 +35,15 @@ export default function Home() {
       <div className="_main-content px-9 py-5 text-l">
         <Center>
           <h2 className="text-2xl md:text-4xl font-light mb-0 text-zinc-200">
-            Who we are
+            Ready to build your next project
           </h2>
           <div className="text-zinc-200 font-light rounded-md border-zinc-500 my-7 mt-5 max-w-xl md:text-xl flex flex-col gap-5">
-            <p className="[text-wrap:balance;]">
+            <p className="[text-wrap:balance;] text-zinc-400">
               After years of working together as a part of larger
               teams, we have decided to branch off and start our
               own company.
             </p>
-            <p className="[text-wrap:balance;]">
+            <p className="[text-wrap:balance;] text-zinc-400">
               Our team comprises dedicated developers boasting
               extensive experience across various industries.
               What sets us apart is our collective expertise in
@@ -51,6 +51,12 @@ export default function Home() {
               design.
             </p>
           </div>
+          <a
+            href="mailto:hakon@ryfylke.dev"
+            className="bg-zinc-800 hover:bg-zinc-900 text-zinc-100 rounded-md p-3 px-5 text-sm tracking-wider font-semibold"
+          >
+            Get in touch
+          </a>
           <div className="flex flex-col sm:flex-row flex-wrap gap-5 mt-14 justify-between">
             <Person img="/morten.jpg" name="Morten Hauge" />
             <Person
@@ -58,6 +64,10 @@ export default function Home() {
               name="Jahn Thomas Fidje"
             />
             <Person img="/hakon.jpg" name="Håkon Underbakke" />
+            <Person
+              img="/christian.jpg"
+              name="Christian Kråkevik"
+            />
           </div>
 
           {/*           <ul className=" rounded-md border-zinc-500 p-5 justify-between flex flex-wrap gap-5 mt-5 text-zinc-200 text-l font-semibold">
@@ -78,34 +88,6 @@ export default function Home() {
             </li>
           </ul> */}
           <div className="mt-9 sm:mt-16" />
-          <h2 className="text-2xl md:text-4xl font-light mb-7 text-zinc-200">
-            Projects
-          </h2>
-          <a
-            href="https://newbringer.com"
-            className="relative group sm:max-w-xs block border-zinc-700 shadow-sm  shadow-teal-100 rounded-md overflow-hidden"
-          >
-            <Image
-              src="/newbringer.jpeg"
-              width={300}
-              height={300}
-              alt="Newbringer"
-              className="w-full h-full object-cover group-hover:opacity-80 group-hover:scale-105 group-hover:rotate-2 duration-700 transition-all"
-            />
-            <span
-              style={{
-                backdropFilter:
-                  "blur(4px) saturate(46%) contrast(109%) brightness(85%)",
-              }}
-              className="absolute group-hover:opacity-90 text-center text-teal-200 hover:text-teal-400 transition-all duration-700 inset-0 flex tracking-widest items-center justify-center text-xl font-semibold"
-            >
-              <div>
-                NEWBRINGER
-                <br />
-                <span className="text-xs">IRL GAMING</span>
-              </div>
-            </span>
-          </a>
         </Center>
       </div>
     </main>
@@ -130,7 +112,7 @@ function Person(props: { img: string; name: string }) {
           alt={props.name}
           height={300}
           src={props.img}
-          className="select-none object-center object-cover transition-transform pointer-events-none w-full h-full group-hover:translate-y-[-1rem]"
+          className="select-none object-center object-cover transition-transform pointer-events-none w-full h-full group-hover:translate-y-[-1rem] grayscale"
         />
       </div>
       <p className="bg-zinc-900 absolute bottom-0 left-0 right-0 transition-opacity opacity-0 group-hover:opacity-100 text-zinc-200 p-2 text-xs text-center">
