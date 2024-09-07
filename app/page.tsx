@@ -63,7 +63,10 @@ export default function Home() {
               img="/jahnthomas.jpg"
               name="Jahn Thomas Fidje"
             />
-            <Person img="/hakon.jpg" name="Håkon Underbakke" />
+            <Person
+              img="/hakon-2.jpeg"
+              name="Håkon Underbakke"
+            />
             <Person
               img="/christian.jpg"
               name="Christian Kråkevik"
@@ -106,13 +109,13 @@ function Person(props: { img: string; name: string }) {
       title={props.name}
       className="rounded-md group relative shadow-sm shadow-zinc-700 border  border-zinc-900 flex-1 overflow-hidden aspect-[1/2] max-h-[280px] sm:max-h-screen sm:aspect-[1/0.9] object-cover flex flex-col min-w-[150px]"
     >
-      <div className="h-full overflow-hidden flex items-center justify-center">
+      <div className="h-full bg-zinc-900 overflow-hidden flex items-center justify-center">
         <Image
           width={300}
           alt={props.name}
           height={300}
           src={props.img}
-          className="select-none object-center object-cover transition-transform pointer-events-none w-full h-full group-hover:translate-y-[-1rem] grayscale"
+          className="select-none object-contain transition-transform pointer-events-none w-full h-full group-hover:translate-y-[-1rem] grayscale"
         />
       </div>
       <p className="bg-zinc-900 absolute bottom-0 left-0 right-0 transition-opacity opacity-0 group-hover:opacity-100 text-zinc-200 p-2 text-xs text-center">
