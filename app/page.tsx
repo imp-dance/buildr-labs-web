@@ -53,9 +53,11 @@ export default function Home() {
           </div>
           <a
             href="mailto:hakon@ryfylke.dev"
-            className="bg-zinc-800 hover:bg-zinc-900 text-zinc-100 rounded-md p-3 px-5 text-sm tracking-wider font-semibold"
+            className="transition-all block w-max animateborder relative p-[1px] rounded-sm hover:bg-teal-900  text-zinc-100"
           >
-            Get in touch
+            <span className="transition-all inline-block p-3 px-5 bg-zinc-950 rounded-sm hover:bg-teal-950 hover:to-zinc-900  text-sm tracking-wider font-semibold">
+              Get in touch
+            </span>
           </a>
           <div className="flex flex-col sm:flex-row flex-wrap gap-5 mt-14 justify-between">
             <Person img="/morten.jpg" name="Morten Hauge" />
@@ -63,10 +65,7 @@ export default function Home() {
               img="/jahnthomas.jpg"
               name="Jahn Thomas Fidje"
             />
-            <Person
-              img="/hakon-2.jpeg"
-              name="Håkon Underbakke"
-            />
+            <Person img="/hakon.jpeg" name="Håkon Underbakke" />
             <Person
               img="/christian.jpg"
               name="Christian Kråkevik"

@@ -3,10 +3,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@property --animate-deg {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+}
+
+.animateborder {
+  background: conic-gradient(
+    from var(--animate-deg),
+    transparent,
+    rgba(255, 255, 255, 0.1) 10%
+  );
+  animation: rotateBg 8s linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,4 +71,13 @@ body {
 
   animation: mainContentIn 0.6s ease-out both;
   animation-delay: 0.5s;
+}
+
+@keyframes rotateBg {
+  0% {
+    --animate-deg: 0deg;
+  }
+  100% {
+    --animate-deg: -360deg;
+  }
 }
