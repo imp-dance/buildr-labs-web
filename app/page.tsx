@@ -47,8 +47,12 @@ export default function Home() {
               Our team comprises dedicated developers boasting
               extensive experience across various industries.
               What sets us apart is our collective expertise in
-              product management, product development, and
-              design.
+              product management, product development, artificial
+              intelligence, and design.
+            </p>
+
+            <p className="[text-wrap:balance;] text-zinc-400">
+              Let us help you realize your next project.
             </p>
           </div>
           <a
@@ -71,24 +75,6 @@ export default function Home() {
               name="Christian Kråkevik"
             />
           </div>
-
-          {/*           <ul className=" rounded-md border-zinc-500 p-5 justify-between flex flex-wrap gap-5 mt-5 text-zinc-200 text-l font-semibold">
-            <li className="bg-zinc-900 p-2 rounded-md">
-              Artificial Intelligence
-            </li>
-            <li className="bg-zinc-900 p-2 rounded-md">
-              Backend
-            </li>
-            <li className="bg-zinc-900 p-2 rounded-md">
-              Devops
-            </li>
-            <li className="bg-zinc-900 p-2 rounded-md">
-              Frontend
-            </li>
-            <li className="bg-zinc-900 p-2 rounded-md">
-              UI & UX
-            </li>
-          </ul> */}
           <div className="mt-9 sm:mt-16" />
         </Center>
       </div>
