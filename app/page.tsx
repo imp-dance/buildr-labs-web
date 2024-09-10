@@ -1,7 +1,31 @@
 import { BuildrLogo } from "@/components/BuildrLogo/BuildrLogo";
 import Image from "next/image";
+import { CSSProperties } from "react";
 
-export default function Home() {
+const i18n = {
+  no: {
+    subTitle:
+      "Utvikler programvare og brygger ideer siden 2023.",
+    heading: "Klar for å bygge ditt neste prosjekt?",
+    p1: "Etter å ha jobbet sammen i flere år som en del av større team, har vi bestemt oss for å starte vårt eget selskap.",
+    p2: "Vårt team består av dedikerte utviklere med omfattende erfaring fra ulike bransjer. Det som skiller oss ut er vår kollektive ekspertise innen produktledelse, produktutvikling, kunstig intelligens og design.",
+    p3: "La oss hjelpe deg med å realisere ditt neste prosjekt.",
+    cto: "Ta kontakt",
+  },
+  en: {
+    subTitle: "Building software & brewing ideas since 2023.",
+    heading: "Ready to build your next project?",
+    p1: "After years of working together as a part of larger teams, we have decided to branch off and start our own company.",
+    p2: "Our team comprises dedicated developers boasting extensive experience across various industries. What sets us apart is our collective expertise in product management, product development, artificial intelligence, and design.",
+    p3: "Let us help you realize your next project.",
+    cto: "Let's talk",
+  },
+};
+
+export default function Home(props: {
+  searchParams: { l: "no" | "en" };
+}) {
+  const { l = "en" } = props.searchParams;
   return (
     <main className="text-zinc-200">
       <div className="p-9 py-9 sm:py-16">
@@ -26,7 +50,7 @@ export default function Home() {
                 }}
                 className="text-sm font-light ml-1 text-zinc-300 opacity-80"
               >
-                Building software & brewing ideas since 2023.
+                {i18n[l].subTitle}
               </p>
             </h2>
           </header>
@@ -34,43 +58,57 @@ export default function Home() {
       </div>
       <div className="_main-content px-9 py-5 text-l">
         <Center>
-          <h2 className="text-2xl md:text-4xl font-light mb-0 text-zinc-200">
-            Ready to build your next project
+          <h2 className="text-3xl md:text-5xl font-light mb-9 text-zinc-200">
+            {i18n[l].heading}
           </h2>
-          <div className="text-zinc-200 font-light rounded-md border-zinc-500 my-7 mt-5 max-w-xl md:text-xl flex flex-col gap-5">
+          <div className="text-zinc-200 font-light rounded-md border-zinc-500 my-9 mt-9 max-w-xl md:text-xl flex flex-col gap-5">
             <p className="[text-wrap:balance;] text-zinc-400">
-              After years of working together as a part of larger
-              teams, we have decided to branch off and start our
-              own company.
+              {i18n[l].p1}
             </p>
             <p className="[text-wrap:balance;] text-zinc-400">
-              Our team comprises dedicated developers boasting
-              extensive experience across various industries.
-              What sets us apart is our collective expertise in
-              product management, product development, artificial
-              intelligence, and design.
+              {i18n[l].p2}
             </p>
 
             <p className="[text-wrap:balance;] text-zinc-400">
-              Let us help you realize your next project.
+              {i18n[l].p3}
             </p>
           </div>
-          <a
-            href="mailto:hakon@ryfylke.dev"
-            className="transition-all block w-max animateborder relative p-[1px] rounded-sm hover:bg-teal-900  text-zinc-100"
-          >
-            <span className="transition-all inline-block p-3 px-5 bg-zinc-950 rounded-sm hover:bg-teal-950 hover:to-zinc-900  text-sm tracking-wider font-semibold">
-              Get in touch
-            </span>
-          </a>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-5 mt-14 justify-between">
-            <Person img="/morten.jpg" name="Morten Hauge" />
+          <div className="flex gap-3 mb-24">
+            <a
+              href="mailto:hakon@ryfylke.dev"
+              className="transition-all block w-max animateborder relative p-[1px] rounded-sm hover:bg-teal-900  text-zinc-100"
+            >
+              <span className="transition-all inline-block p-3 px-5 bg-zinc-950 rounded-sm hover:bg-teal-950 hover:to-zinc-900  text-sm tracking-wider font-semibold">
+                {i18n[l].cto}
+              </span>
+            </a>
+            <a
+              href={"?l=" + (l === "no" ? "en" : "no")}
+              className="transition-all block w-max relative p-[1px] rounded-sm hover:bg-blue-900  text-zinc-100"
+            >
+              <span className="transition-all inline-block p-3 px-5 bg-zinc-950 rounded-sm hover:bg-blue-950 hover:to-zinc-900  text-sm tracking-wider font-semibold">
+                {l === "no" ? "EN" : "NO"}
+              </span>
+            </a>
+          </div>
+          <div className="flex  mx-auto flex-wrap flex-row gap-5 justify-center">
             <Person
+              i={0}
+              img="/morten.jpg"
+              name="Morten Hauge"
+            />
+            <Person
+              i={1}
               img="/jahnthomas.jpg"
               name="Jahn Thomas Fidje"
             />
-            <Person img="/hakon.jpeg" name="Håkon Underbakke" />
             <Person
+              i={2}
+              img="/hakon.jpeg"
+              name="Håkon Underbakke"
+            />
+            <Person
+              i={3}
               img="/christian.jpg"
               name="Christian Kråkevik"
             />
@@ -88,11 +126,19 @@ function Center(props: { children: React.ReactNode }) {
   );
 }
 
-function Person(props: { img: string; name: string }) {
+function Person(props: {
+  img: string;
+  name: string;
+  i: number;
+}) {
   return (
     <div
-      title={props.name}
-      className="rounded-md group relative shadow-sm shadow-zinc-700 border  border-zinc-900 flex-1 overflow-hidden aspect-[1/2] max-h-[280px] sm:max-h-screen sm:aspect-[1/0.9] object-cover flex flex-col min-w-[150px]"
+      style={
+        {
+          "--i": props.i,
+        } as CSSProperties
+      }
+      className="person rounded-full aspect-square group relative shadow-sm shadow-zinc-700 border  border-zinc-900 flex-1 overflow-hidden  max-h-[200px] sm:max-h-screen sm:aspect-[1/0.9] object-cover flex flex-col max-w-[200px] min-w-[150px]"
     >
       <div className="h-full bg-zinc-900 overflow-hidden flex items-center justify-center">
         <Image
@@ -100,10 +146,10 @@ function Person(props: { img: string; name: string }) {
           alt={props.name}
           height={300}
           src={props.img}
-          className="select-none object-contain transition-transform pointer-events-none w-full h-full group-hover:translate-y-[-1rem] grayscale"
+          className="select-none object-cover transition-transform duration-1000 pointer-events-none w-full h-full group-hover:translate-y-[-1rem] group-hover:-rotate-2 group-hover:scale-95 grayscale"
         />
       </div>
-      <p className="bg-zinc-900 absolute bottom-0 left-0 right-0 transition-opacity opacity-0 group-hover:opacity-100 text-zinc-200 p-2 text-xs text-center">
+      <p className="bg-zinc-900 absolute bottom-0 left-0 right-0 transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:translate-y-[-20%] translate-y-[100%] text-zinc-200 p-2 text-xs text-center">
         {props.name}
       </p>
     </div>
