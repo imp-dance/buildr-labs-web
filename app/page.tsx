@@ -1,4 +1,5 @@
 import { BuildrLogo } from "@/components/BuildrLogo/BuildrLogo";
+import { Button } from "@/components/Button";
 import Image from "next/image";
 import { CSSProperties } from "react";
 
@@ -74,22 +75,21 @@ export default function Home(props: {
             </p>
           </div>
           <div className="flex gap-3 mb-24">
-            <a
+            <Button
+              as="a"
               href="mailto:hakon@ryfylke.dev"
-              className="transition-all block w-max animateborder relative p-[1px] rounded-sm hover:bg-teal-900  text-zinc-100"
+              animate
             >
-              <span className="transition-all inline-block p-3 px-5 bg-zinc-950 rounded-sm hover:bg-teal-950 hover:to-zinc-900  text-sm tracking-wider font-semibold">
-                {i18n[l].cto}
-              </span>
-            </a>
-            <a
+              {i18n[l].cto}
+            </Button>
+            <Button
+              as="a"
               href={"?l=" + (l === "no" ? "en" : "no")}
-              className="transition-all block w-max relative p-[1px] rounded-sm hover:bg-blue-900  text-zinc-100"
+              className="hover:bg-blue-900"
+              innerClassName="hover:bg-blue-950"
             >
-              <span className="transition-all inline-block p-3 px-5 bg-zinc-950 rounded-sm hover:bg-blue-950 hover:to-zinc-900  text-sm tracking-wider font-semibold">
-                {l === "no" ? "EN" : "NO"}
-              </span>
-            </a>
+              {l === "no" ? "EN" : "NO"}
+            </Button>
           </div>
           <div className="flex  mx-auto flex-wrap flex-row gap-5 justify-center">
             <Person
