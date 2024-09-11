@@ -96,21 +96,25 @@ export default function Home(props: {
               i={0}
               img="/morten.jpg"
               name="Morten Hauge"
+              title="AI & Backend"
             />
             <Person
               i={1}
               img="/jahnthomas.jpg"
               name="Jahn Thomas Fidje"
+              title="AI & Backend"
             />
             <Person
               i={2}
               img="/hakon.jpeg"
               name="Håkon Underbakke"
+              title="Frontend"
             />
             <Person
               i={3}
               img="/christian.jpg"
               name="Christian Kråkevik"
+              title="Backend"
             />
           </div>
           <div className="mt-9 sm:mt-16" />
@@ -129,6 +133,7 @@ function Center(props: { children: React.ReactNode }) {
 function Person(props: {
   img: string;
   name: string;
+  title: string;
   i: number;
 }) {
   return (
@@ -138,7 +143,7 @@ function Person(props: {
           "--i": props.i,
         } as CSSProperties
       }
-      className="person rounded-full aspect-square group relative shadow-sm shadow-zinc-700 border  border-zinc-900 flex-1 overflow-hidden  max-h-[200px] sm:max-h-screen sm:aspect-[1/0.9] object-cover flex flex-col max-w-[200px] min-w-[150px]"
+      className="person rounded-full aspect-square group relative shadow-sm shadow-zinc-700 border  border-zinc-900 flex-1 overflow-hidden  max-h-[200px] sm:max-h-screen  object-cover flex flex-col max-w-[200px] min-w-[150px]"
     >
       <div className="h-full bg-zinc-900 overflow-hidden flex items-center justify-center">
         <Image
@@ -146,11 +151,16 @@ function Person(props: {
           alt={props.name}
           height={300}
           src={props.img}
-          className="select-none object-cover transition-transform duration-1000 pointer-events-none w-full h-full group-hover:translate-y-[-1rem] group-hover:-rotate-2 group-hover:scale-95 grayscale"
+          className="select-none object-cover transition-transform duration-1000 pointer-events-none w-full h-full  group-hover:-rotate-2 group-hover:scale-110 grayscale"
         />
       </div>
-      <p className="bg-zinc-900 absolute bottom-0 left-0 right-0 transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:translate-y-[-20%] translate-y-[100%] text-zinc-200 p-2 text-xs text-center">
+      <div className="absolute top-0 left-0 right-0 bottom-0 bg-orange-700 opacity-20" />
+      <p className="bg-[rgba(0,0,0,0.8)] absolute font-semibold bottom-0 left-0 right-0 transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:translate-y-[-20%] translate-y-[100%] text-zinc-200 p-2 text-sm text-center">
         {props.name}
+        <br />
+        <span className="text-teal-300 text-xs font-normal">
+          {props.title}
+        </span>
       </p>
     </div>
   );
