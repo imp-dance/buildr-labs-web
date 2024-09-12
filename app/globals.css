@@ -3,9 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
-@property --animate-deg {
+@property --border-anim-angle {
   syntax: "<angle>";
   initial-value: 0deg;
+  inherits: false;
+}
+
+@property --bg-anim-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --bg-anim-percent {
+  syntax: "<percentage>";
+  initial-value: 0%;
   inherits: false;
 }
 
@@ -17,7 +29,7 @@
 
 .animateborder {
   background: conic-gradient(
-    from var(--animate-deg),
+    from var(--border-anim-angle),
     #e4e4e799,
     hsl(0deg 0% 100% / 28%) 30%
   );
@@ -29,7 +41,7 @@
   &:hover {
     animation-direction: normal;
     background: conic-gradient(
-      from var(--animate-deg),
+      from var(--border-anim-angle),
       rgb(20 184 166),
       hsl(0deg 0% 100% / 28%) 30%
     );
@@ -67,10 +79,26 @@
   }
 }
 
+@keyframes bodyAnim {
+  from {
+    --bg-anim-percent: 90%;
+    --bg-anim-angle: 30deg;
+  }
+  to {
+    --bg-anim-percent: 100%;
+    --bg-anim-angle: 54deg;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   font-family: "Ubuntu", sans-serif;
-  background: linear-gradient(54deg, black, #00130f);
+  background: linear-gradient(
+    var(--bg-anim-angle),
+    black,
+    #00130f var(--bg-anim-percent)
+  );
+  animation: bodyAnim 3s ease-out both;
 }
 
 @layer base {
@@ -110,10 +138,10 @@ body {
 
 @keyframes rotateBg {
   0% {
-    --animate-deg: 90deg;
+    --border-anim-angle: 90deg;
   }
   100% {
-    --animate-deg: -270deg;
+    --border-anim-angle: -270deg;
   }
 }
 
@@ -145,7 +173,7 @@ body {
 .bg-canvas {
   border: 1px solid black;
   position: fixed;
-  opacity: 0.2;
+  opacity: 0.05;
   top: 0;
   left: 0;
   right: 0;
