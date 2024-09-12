@@ -53,6 +53,11 @@ export function Button(props: {
       onMouseMove={(e) => onMouseMove(e)}
     >
       <span
+        style={
+          {
+            "--tw-bg-opacity": "0.93",
+          } as CSSProperties
+        }
         className={`flex items-center transition-all h-full p-3 px-5 bg-zinc-950 rounded-sm hover:bg-teal-950 hover:to-zinc-900  text-sm tracking-wider font-semibold ${props.innerClassName}`}
       >
         {props.children}
