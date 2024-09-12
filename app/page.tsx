@@ -1,6 +1,7 @@
 import { BuildrLogo } from "@/components/BuildrLogo/BuildrLogo";
 import { Button } from "@/components/Button";
-import { GenerativeArt } from "@/components/GenerativeArt";
+import { Chain } from "@/components/Chain";
+import { FloatingBitBackground } from "@/components/FloatingBitBackground";
 import Image from "next/image";
 import { CSSProperties } from "react";
 
@@ -59,8 +60,9 @@ export default function Home(props: {
             </header>
           </Center>
         </div>
-        <div className="_main-content px-9 py-5 text-l">
-          <Center>
+        <div className="_main-content px-9 py-5 text-l ">
+          <Center className="relative">
+            <Chain />
             <h2 className="text-3xl md:text-5xl font-light mb-9 text-zinc-200">
               {i18n[l].heading}
             </h2>
@@ -134,14 +136,19 @@ export default function Home(props: {
           </Center>
         </div>
       </main>
-      <GenerativeArt />
+      <FloatingBitBackground />
     </>
   );
 }
 
-function Center(props: { children: React.ReactNode }) {
+function Center(props: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <div className="max-w-4xl mx-auto">{props.children}</div>
+    <div className={"max-w-4xl mx-auto " + props.className}>
+      {props.children}
+    </div>
   );
 }
 
