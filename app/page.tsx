@@ -90,7 +90,18 @@ export default function Home(props: {
                 className="hover:bg-blue-900"
                 innerClassName="hover:bg-blue-950"
               >
-                {l === "no" ? "EN" : "NO"}
+                <Image
+                  src={`/${l === "no" ? "en" : "no"}.png`}
+                  width={32}
+                  height={32}
+                  style={{
+                    width: "1rem",
+                    height: "1rem",
+                    display: "block",
+                    margin: "0",
+                  }}
+                  alt={`Flag of ${l === "no" ? "UK" : "Norway"}`}
+                />
               </Button>
             </div>
             <div className="flex  mx-auto flex-wrap flex-row gap-5 justify-center">
