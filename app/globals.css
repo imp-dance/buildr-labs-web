@@ -69,8 +69,8 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #000;
   font-family: "Ubuntu", sans-serif;
+  background: linear-gradient(54deg, black, #00130f);
 }
 
 @layer base {
@@ -133,4 +133,26 @@ body {
   animation-fill-mode: both !important;
   animation: personIn 0.5s;
   animation-delay: calc(0.6s + var(--i) * 0.15s);
+}
+
+@keyframes bgCanvasIn {
+  from {
+    opacity: 0;
+    scale: 0.8;
+  }
+}
+
+.bg-canvas {
+  border: 1px solid black;
+  position: fixed;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  filter: blur(4px) grayscale(0.85) opacity(1);
+  animation: bgCanvasIn 10s ease-out both;
 }

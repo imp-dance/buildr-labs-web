@@ -1,5 +1,6 @@
 import { BuildrLogo } from "@/components/BuildrLogo/BuildrLogo";
 import { Button } from "@/components/Button";
+import { GenerativeArt } from "@/components/GenerativeArt";
 import Image from "next/image";
 import { CSSProperties } from "react";
 
@@ -28,99 +29,102 @@ export default function Home(props: {
 }) {
   const { l = "en" } = props.searchParams;
   return (
-    <main className="text-zinc-200">
-      <div className="p-9 py-9 sm:py-16">
-        <Center>
-          <header className="rounded-md rounded-t-none  border-t-0 border-zinc-500 flex flex-row items-center gap-5 ">
-            <BuildrLogo
-              style={{ width: "2rem", height: "auto" }}
-              className="text-teal-500 flex-shrink-0"
-            />
-            <h2
-              style={{
-                animation: "logoTextIn 1s ease-in-out both",
-                animationDelay: "0.1s",
-              }}
-              className="text-4xl font-extralight tracking-wide flex flex-col"
-            >
-              buildr labs
-              <p
+    <>
+      <main className="text-zinc-200">
+        <div className="p-9 py-9 sm:py-16">
+          <Center>
+            <header className="rounded-md rounded-t-none  border-t-0 border-zinc-500 flex flex-row items-center gap-5 ">
+              <BuildrLogo
+                style={{ width: "2rem", height: "auto" }}
+                className="text-teal-500 flex-shrink-0"
+              />
+              <h2
                 style={{
                   animation: "logoTextIn 1s ease-in-out both",
-                  animationDelay: "0.2s",
+                  animationDelay: "0.1s",
                 }}
-                className="text-sm font-light ml-1 text-zinc-300 opacity-80"
+                className="text-4xl font-extralight tracking-wide flex flex-col"
               >
-                {i18n[l].subTitle}
-              </p>
+                buildr labs
+                <p
+                  style={{
+                    animation: "logoTextIn 1s ease-in-out both",
+                    animationDelay: "0.2s",
+                  }}
+                  className="text-sm font-light ml-1 text-zinc-300 opacity-80"
+                >
+                  {i18n[l].subTitle}
+                </p>
+              </h2>
+            </header>
+          </Center>
+        </div>
+        <div className="_main-content px-9 py-5 text-l">
+          <Center>
+            <h2 className="text-3xl md:text-5xl font-light mb-9 text-zinc-200">
+              {i18n[l].heading}
             </h2>
-          </header>
-        </Center>
-      </div>
-      <div className="_main-content px-9 py-5 text-l">
-        <Center>
-          <h2 className="text-3xl md:text-5xl font-light mb-9 text-zinc-200">
-            {i18n[l].heading}
-          </h2>
-          <div className="text-zinc-200 font-light rounded-md border-zinc-500 my-9 mt-9 max-w-xl md:text-xl flex flex-col gap-5">
-            <p className="[text-wrap:balance;] text-zinc-400">
-              {i18n[l].p1}
-            </p>
-            <p className="[text-wrap:balance;] text-zinc-400">
-              {i18n[l].p2}
-            </p>
+            <div className="text-zinc-200 font-light rounded-md border-zinc-500 my-9 mt-9 max-w-xl md:text-xl flex flex-col gap-5">
+              <p className="[text-wrap:balance;] text-zinc-400">
+                {i18n[l].p1}
+              </p>
+              <p className="[text-wrap:balance;] text-zinc-400">
+                {i18n[l].p2}
+              </p>
 
-            <p className="[text-wrap:balance;] text-zinc-400">
-              {i18n[l].p3}
-            </p>
-          </div>
-          <div className="flex gap-3 mb-24">
-            <Button
-              as="a"
-              href="mailto:hakon@ryfylke.dev"
-              animate
-            >
-              {i18n[l].cto}
-            </Button>
-            <Button
-              as="a"
-              href={"?l=" + (l === "no" ? "en" : "no")}
-              className="hover:bg-blue-900"
-              innerClassName="hover:bg-blue-950"
-            >
-              {l === "no" ? "EN" : "NO"}
-            </Button>
-          </div>
-          <div className="flex  mx-auto flex-wrap flex-row gap-5 justify-center">
-            <Person
-              i={0}
-              img="/morten.jpg"
-              name="Morten Hauge"
-              title="AI & Backend"
-            />
-            <Person
-              i={1}
-              img="/jahnthomas.jpg"
-              name="Jahn Thomas Fidje"
-              title="AI & Backend"
-            />
-            <Person
-              i={2}
-              img="/hakon.jpeg"
-              name="Håkon Underbakke"
-              title="Frontend"
-            />
-            <Person
-              i={3}
-              img="/christian.jpg"
-              name="Christian Kråkevik"
-              title="Backend"
-            />
-          </div>
-          <div className="mt-9 sm:mt-16" />
-        </Center>
-      </div>
-    </main>
+              <p className="[text-wrap:balance;] text-zinc-400">
+                {i18n[l].p3}
+              </p>
+            </div>
+            <div className="flex gap-3 mb-24">
+              <Button
+                as="a"
+                href="mailto:hakon@ryfylke.dev"
+                animate
+              >
+                {i18n[l].cto}
+              </Button>
+              <Button
+                as="a"
+                href={"?l=" + (l === "no" ? "en" : "no")}
+                className="hover:bg-blue-900"
+                innerClassName="hover:bg-blue-950"
+              >
+                {l === "no" ? "EN" : "NO"}
+              </Button>
+            </div>
+            <div className="flex  mx-auto flex-wrap flex-row gap-5 justify-center">
+              <Person
+                i={0}
+                img="/morten.jpg"
+                name="Morten Hauge"
+                title="AI & Backend"
+              />
+              <Person
+                i={1}
+                img="/jahnthomas.jpg"
+                name="Jahn Thomas Fidje"
+                title="AI & Backend"
+              />
+              <Person
+                i={2}
+                img="/hakon.jpeg"
+                name="Håkon Underbakke"
+                title="Frontend"
+              />
+              <Person
+                i={3}
+                img="/christian.jpg"
+                name="Christian Kråkevik"
+                title="Backend"
+              />
+            </div>
+            <div className="mt-9 sm:mt-16" />
+          </Center>
+        </div>
+      </main>
+      <GenerativeArt />
+    </>
   );
 }
 
