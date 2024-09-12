@@ -99,6 +99,8 @@ body {
     #00130f var(--bg-anim-percent)
   );
   animation: bodyAnim 3s ease-out both;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 @layer base {
