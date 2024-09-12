@@ -2,8 +2,7 @@
 import { useEffect, useRef } from "react";
 
 const AMOUNT_OF_BITS = 80;
-const getBitColor = () =>
-  `rgba(0,${rand(100, 170)},${rand(110, 90)},1)`;
+const getBitColor = () => "#073631";
 const getSpeed = () => rand(0.01, 0.2);
 const getSize = () => Math.random() * 2 + 2;
 const SIZE_SPEED = 0.01;

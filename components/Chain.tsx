@@ -37,7 +37,7 @@ class Point {
     }
     this.y = this.y > ctx.canvas.height ? 0 : this.y + 0.1;
     ctx.rect(this.x, this.y, this.size, this.size);
-    ctx.fillStyle = "rgb(44, 60, 58)";
+    ctx.fillStyle = "rgb(73, 73, 73)";
     ctx.fill();
   }
 }
@@ -68,17 +68,17 @@ export function Chain() {
   return (
     <canvas
       ref={ref}
-      className="hidden sm:block clipPathIn"
+      className="hidden  md:block clipPathIn"
       style={{
-        height: 120,
-        width: "10%",
+        height: 70,
+        width: 100,
         position: "absolute",
         left: 0,
-        bottom: 50,
+        bottom: 150,
         margin: "0 auto",
         zIndex: -1,
         transform: "scale(3)",
-        opacity: 0.3,
+        opacity: 0.2,
       }}
     ></canvas>
   );
