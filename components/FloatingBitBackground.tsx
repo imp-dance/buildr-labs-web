@@ -117,6 +117,9 @@ class Bit {
     if (this.size > 1 && this.hasFlipped) {
       this.size -= SIZE_SPEED;
     }
+    if (this.hasFlipped && this.size <= 0.3) {
+      this.hasFlipped = false;
+    }
 
     this.y -= this.speed;
     const height = this.size;
@@ -135,6 +138,7 @@ class Bit {
       ctx.fillStyle = this.fill;
       ctx.fillRect(this.x, this.y, width, height);
     } else {
+      this.y -= this.speed / 2;
       ctx.fillStyle = "rgba(255, 255, 255, 0.2)";
       ctx.fillRect(this.x, this.y, width, height);
     }
